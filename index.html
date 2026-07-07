@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Visibility Audit — ChatGPT & Claude Brand Analysis</title>
+    <title>AI Visibility Strategy — Audit & AI Visibility Strategy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
@@ -32,17 +32,6 @@
             border-radius: 9999px;
             display: inline-block;
         }
-        .price-tag {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #1e293b;
-            line-height: 1;
-        }
-        .price-tag span {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #64748b;
-        }
         .section-title {
             font-size: 2.25rem;
             font-weight: 800;
@@ -51,7 +40,6 @@
         }
         @media (max-width: 768px) {
             .section-title { font-size: 1.75rem; }
-            .price-tag { font-size: 2.25rem; }
         }
         .table-wrap { overflow-x: auto; }
         .table-wrap table {
@@ -141,6 +129,30 @@
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            background: #2563eb;
+            color: white;
+            font-weight: 900;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        .step-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+        @media (max-width: 768px) {
+            .step-connector { transform: rotate(90deg); }
+        }
     </style>
 </head>
 <body>
@@ -150,7 +162,7 @@
     <div class="max-w-5xl mx-auto text-center">
         <div class="mb-4">
             <span class="badge bg-white/10 text-white border border-white/20">
-                Generative AI Visibility Audit
+                AI Visibility Strategy
             </span>
         </div>
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
@@ -158,15 +170,14 @@
             <span class="text-blue-300">ChatGPT & Claude Recommendations?</span>
         </h1>
         <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-            We analyze how generative AI systems perceive your company, products, and competitors.
-            15–20 pages of analytics, 10+ real user scenarios, competitor benchmarking —
-            starting at <span class="text-white font-bold">$99</span>.
+            AI visibility diagnostics + a strategy to get into the AI shortlist.
+            15–20 pages of analytics, competitor benchmarking, and a ready action plan — starting at <span class="text-white font-bold">$99</span>.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.kate.taratuta@gmail.com&su=AI%20Visibility%20Audit%20Request"
                target="_blank"
                class="gradient-cta text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all inline-block">
-                Get AI Visibility Audit — $99
+                Start with Diagnostics — $99
             </a>
             <span class="text-sm text-slate-400 hidden sm:inline">· 48-hour delivery</span>
         </div>
@@ -176,58 +187,100 @@
     </div>
 </header>
 
-<!-- ===== VALUE PROPOSITION ===== -->
+<!-- ===== THE PROBLEM: YOU'RE LOSING CLIENTS ===== -->
 <section class="py-16 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-                <div class="text-4xl mb-2">🧠</div>
-                <h3 class="font-bold text-lg">What AI Says About You</h3>
-                <p class="text-sm text-slate-600">Does it recommend, ignore, or distort your brand?</p>
+        <div class="text-center mb-12">
+            <span class="badge bg-red-100 text-red-700 mb-4">THE PROBLEM</span>
+            <h2 class="section-title mb-4">You're Losing Clients<br />You Don't Even See</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">
+                More and more clients are starting their search not with Google, but with ChatGPT.
+                If AI doesn't recommend your brand — you simply don't exist for the new audience.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
+                <div class="text-4xl mb-3">🔍</div>
+                <h3 class="font-bold text-lg">Clients Ask AI</h3>
+                <p class="text-sm text-slate-600">"Which software to choose?", "Who's the best specialist?", "Where to buy?"</p>
             </div>
-            <div>
-                <div class="text-4xl mb-2">🏆</div>
-                <h3 class="font-bold text-lg">Who Gets Your Clients</h3>
-                <p class="text-sm text-slate-600">Which competitors AI recommends instead of you</p>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
+                <div class="text-4xl mb-3">🤖</div>
+                <h3 class="font-bold text-lg">AI Gives a Shortlist</h3>
+                <p class="text-sm text-slate-600">Lists 3–5 companies. If you're not there — the client goes to competitors</p>
             </div>
-            <div>
-                <div class="text-4xl mb-2">🛡️</div>
-                <h3 class="font-bold text-lg">AI Hallucinations</h3>
-                <p class="text-sm text-slate-600">What errors and inaccuracies AI spreads about you</p>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-center">
+                <div class="text-4xl mb-3">😰</div>
+                <h3 class="font-bold text-lg">You Don't Even Know</h3>
+                <p class="text-sm text-slate-600">SEO shows everything is fine. But traffic from new channels is zero</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== WHAT'S INCLUDED ===== -->
+<!-- ===== THE SOLUTION: DIAGNOSTICS → STRATEGY ===== -->
 <section class="py-16 px-6 bg-slate-50">
     <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-center mb-4">What's Included in the Report</h2>
+        <div class="text-center mb-12">
+            <span class="badge bg-blue-100 text-blue-700 mb-4">THE SOLUTION</span>
+            <h2 class="section-title mb-4">Diagnostics → Strategy → Results</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">
+                We don't just check if you're in AI. We build a system that makes AI recommend you.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 max-w-3xl mx-auto">
+            <div class="flex flex-col items-center text-center flex-1">
+                <div class="step-number">1</div>
+                <h3 class="font-bold mt-3">Diagnostics</h3>
+                <p class="text-sm text-slate-600">Test 10+ queries, analyze your visibility, compare with competitors</p>
+            </div>
+            <div class="step-connector">→</div>
+            <div class="flex flex-col items-center text-center flex-1">
+                <div class="step-number">2</div>
+                <h3 class="font-bold mt-3">Strategy</h3>
+                <p class="text-sm text-slate-600">Develop a plan: content, positioning, trust signals, hallucination shield</p>
+            </div>
+            <div class="step-connector">→</div>
+            <div class="flex flex-col items-center text-center flex-1">
+                <div class="step-number">3</div>
+                <h3 class="font-bold mt-3">Result</h3>
+                <p class="text-sm text-slate-600">You appear in AI recommendations, clients find you via ChatGPT</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHAT'S INCLUDED IN DIAGNOSTICS ===== -->
+<section class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-center mb-4">What's Included in Diagnostics</h2>
         <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-            Not just a diagnosis — a comprehensive investigation of how AI perceives
-            your brand, product, and competitive landscape.
+            For $99 you get a complete snapshot of your current AI visibility.
+            This is the foundation for your strategy.
         </p>
         <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-card border border-slate-100">
+            <div class="bg-slate-50 p-8 rounded-2xl shadow-card border border-slate-100">
                 <h3 class="font-bold text-xl text-blue-600 mb-4">Core Analytics</h3>
                 <ul class="space-y-3 text-sm text-slate-700">
                     <li>✓ Executive Summary & AI Visibility Score</li>
                     <li>✓ AI Brand Scorecard across 6 dimensions</li>
                     <li>✓ Competitive benchmarking (3–4 competitors)</li>
                     <li>✓ AI Association Map for your brand</li>
-                    <li>✓ Hallucination Audit</li>
-                    <li>✓ 30–60 Day Action Plan</li>
+                    <li>✓ Hallucination Audit — what errors AI makes about you</li>
+                    <li>✓ Action Plan — first steps to improvement</li>
                 </ul>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-card border border-slate-100">
+            <div class="bg-slate-50 p-8 rounded-2xl shadow-card border border-slate-100">
                 <h3 class="font-bold text-xl text-blue-600 mb-4">Evidence Base</h3>
                 <ul class="space-y-3 text-sm text-slate-700">
-                    <li>✓ Full ChatGPT & Claude responses</li>
-                    <li>✓ All tested user queries</li>
+                    <li>✓ Full ChatGPT & Claude responses to 10+ queries</li>
                     <li>✓ Session screenshots</li>
                     <li>✓ Full list of AI errors found</li>
-                    <li>✓ Competitor positioning map</li>
+                    <li>✓ Competitor positioning map in AI space</li>
                     <li>✓ Prioritized recommendations</li>
+                    <li>✓ Checklist for your team</li>
                 </ul>
             </div>
         </div>
@@ -235,40 +288,39 @@
 </section>
 
 <!-- ===== AI BRAND SCORECARD ===== -->
-<section class="py-16 px-6 bg-white">
+<section class="py-16 px-6 bg-slate-50">
     <div class="max-w-5xl mx-auto">
         <h2 class="section-title text-center mb-4">AI Brand Scorecard</h2>
         <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-            We evaluate your brand across six key parameters that determine
-            AI recommendation likelihood.
+            We evaluate your brand across six key parameters that affect AI recommendations.
         </p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card">
                 <div class="text-2xl mb-2">🔍</div>
-                <h3 class="font-bold">Brand Awareness</h3>
-                <p class="text-sm text-slate-600">Does AI even know your brand exists?</p>
+                <h3 class="font-bold">Awareness</h3>
+                <p class="text-sm text-slate-600">Does AI know your brand at all?</p>
             </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card">
                 <div class="text-2xl mb-2">📂</div>
                 <h3 class="font-bold">Category Visibility</h3>
-                <p class="text-sm text-slate-600">Do you appear in recommendations without brand mention?</p>
+                <p class="text-sm text-slate-600">Do you appear without brand name mention?</p>
             </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card">
                 <div class="text-2xl mb-2">🤝</div>
-                <h3 class="font-bold">Trust Signals</h3>
-                <p class="text-sm text-slate-600">Reviews, case studies, social proof?</p>
+                <h3 class="font-bold">Trust</h3>
+                <p class="text-sm text-slate-600">Reviews, case studies, trust signals?</p>
             </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card">
                 <div class="text-2xl mb-2">⚡</div>
-                <h3 class="font-bold">Modern Perception</h3>
+                <h3 class="font-bold">Modernity</h3>
                 <p class="text-sm text-slate-600">Does AI see your product as modern?</p>
             </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card">
                 <div class="text-2xl mb-2">🏁</div>
-                <h3 class="font-bold">Competitive Position</h3>
+                <h3 class="font-bold">Competitiveness</h3>
                 <p class="text-sm text-slate-600">Who does AI recommend instead of you?</p>
             </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card">
                 <div class="text-2xl mb-2">⚠️</div>
                 <h3 class="font-bold">Hallucination Risk</h3>
                 <p class="text-sm text-slate-600">What errors does AI spread about you?</p>
@@ -277,13 +329,60 @@
     </div>
 </section>
 
+<!-- ===== WHAT'S NEXT? STRATEGY ===== -->
+<section class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl border border-blue-100 p-8 md:p-12">
+            <div class="text-center">
+                <span class="badge bg-blue-600 text-white mb-4">NEXT STEP</span>
+                <h2 class="section-title mb-4">Diagnostics Is the Door to Strategy</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mb-8">
+                    After the audit, we build a <span class="font-bold text-slate-800">custom AI Visibility Strategy</span> for your business.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-card border border-white">
+                    <div class="text-2xl mb-2">📋</div>
+                    <h4 class="font-bold text-lg">The Strategy Includes</h4>
+                    <ul class="space-y-2 text-sm text-slate-600 mt-3">
+                        <li>✓ AI content plan (what to create and how to optimize)</li>
+                        <li>✓ Competitive comparison structure</li>
+                        <li>✓ Trust architecture (reviews, case studies, mentions)</li>
+                        <li>✓ Hallucination Shield</li>
+                        <li>✓ Monthly action plan with clear deadlines</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-card border border-white">
+                    <div class="text-2xl mb-2">🎯</div>
+                    <h4 class="font-bold text-lg">What You Get</h4>
+                    <ul class="space-y-2 text-sm text-slate-600 mt-3">
+                        <li>✓ Clear understanding of where you are and where you're going</li>
+                        <li>✓ A step-by-step plan</li>
+                        <li>✓ Progress monitoring system</li>
+                        <li>✓ Ability to adjust the strategy as you grow</li>
+                        <li>✓ Long-term partnership, not a one-time report</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-blue-600/10 rounded-xl p-6 border border-blue-200 text-center">
+                <p class="text-sm text-slate-700">
+                    💡 <span class="font-bold">Strategy pricing</span> is discussed individually after diagnostics — 
+                    depending on complexity and scope of work. Diagnostics gives us the full picture.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ===== COMPETITIVE BENCHMARKING (TABLE) ===== -->
 <section class="py-16 px-6 bg-slate-50">
     <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-center mb-4">Competitive AI Positioning</h2>
+        <h2 class="section-title text-center mb-4">Example: Competitive AI Positioning</h2>
         <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            How ChatGPT and Claude position your brand versus competitors.
-            See which associations are already formed — and which are critically missing.
+            In the report, you'll see how ChatGPT positions your brand vs competitors.
+            Which associations are already formed — and which are missing.
         </p>
         <div class="table-wrap bg-white rounded-xl border border-slate-200 shadow-card">
             <table>
@@ -302,176 +401,16 @@
                     <tr><td>Scalability</td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td></tr>
                     <tr><td>SMB Focus</td><td><span class="neutral-gray">—</span></td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td></tr>
                     <tr><td>ERP / Manufacturing</td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="neutral-gray">—</span></td></tr>
-                    <tr><td>Local Expertise</td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td></tr>
+                    <tr><td>Local Expert</td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td></tr>
                     <tr><td>Modern UI/UX</td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="neutral-gray">—</span></td><td><span class="check-green">✓</span></td></tr>
                     <tr><td>Integrations / API</td><td><span class="neutral-gray">—</span></td><td><span class="neutral-gray">—</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td></tr>
-                    <tr><td>Trust & Reviews</td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="neutral-gray">—</span></td></tr>
+                    <tr><td>Reviews / Trust</td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="neutral-gray">—</span></td></tr>
                 </tbody>
             </table>
         </div>
         <p class="text-xs text-slate-500 mt-3 text-center">
             ✓ — strong association &nbsp;·&nbsp; ✕ — absent &nbsp;·&nbsp; — — neutral / weak
         </p>
-    </div>
-</section>
-
-<!-- ===== HALLUCINATION AUDIT ===== -->
-<section class="py-16 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-center mb-4">Hallucination Audit</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            What errors and inaccuracies does AI make about your company?
-            Most users wouldn't notice — but these impact trust and conversion.
-        </p>
-        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8">
-            <div class="hallucination-row">
-                <div><span class="label">AI claims</span><br /><span class="ai-says">"Your product integrates with PayPal"</span></div>
-                <div><span class="label">Reality</span><br /><span class="reality">Integration not confirmed in official sources</span></div>
-            </div>
-            <div class="hallucination-row">
-                <div><span class="label">AI claims</span><br /><span class="ai-says">"Real-time bank synchronization available"</span></div>
-                <div><span class="label">Reality</span><br /><span class="reality">No public evidence of this feature exists</span></div>
-            </div>
-            <div class="hallucination-row">
-                <div><span class="label">AI claims</span><br /><span class="ai-says">"Users on forums recommend you as the best solution"</span></div>
-                <div><span class="label">Reality</span><br /><span class="reality">No significant forum discussions found</span></div>
-            </div>
-            <div class="hallucination-row">
-                <div><span class="label">AI claims</span><br /><span class="ai-says">"Competitor is more modern because they have cloud"</span></div>
-                <div><span class="label">Reality</span><br /><span class="reality">You also have cloud options — AI just doesn't know it</span></div>
-            </div>
-        </div>
-        <p class="text-sm text-slate-600 mt-4 text-center max-w-2xl mx-auto">
-            We document every error and give you a "Hallucination Shield" — content that AI will use as a reliable source.
-        </p>
-    </div>
-</section>
-
-<!-- ===== AI ASSOCIATION MAP ===== -->
-<section class="py-16 px-6 bg-slate-50">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-center mb-4">AI Association Map</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            How AI perceives your brand versus competitors. We show which associations
-            are already formed — and which are critically missing.
-        </p>
-        <div class="association-grid">
-            <div class="association-card">
-                <h4>Your Brand</h4>
-                <ul>
-                    <li>Stability & reliability</li>
-                    <li>Local market expertise</li>
-                    <li>Accounting & compliance</li>
-                    <li>Long-standing presence</li>
-                </ul>
-                <p class="text-xs text-red-500 mt-2 font-semibold">❌ Missing: cloud, modern, automation</p>
-            </div>
-            <div class="association-card">
-                <h4>Competitor 1</h4>
-                <ul>
-                    <li>Cloud-first</li>
-                    <li>Easy to start</li>
-                    <li>SMB focus</li>
-                    <li>Modern interface</li>
-                </ul>
-                <p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p>
-            </div>
-            <div class="association-card">
-                <h4>Competitor 2</h4>
-                <ul>
-                    <li>ERP leader</li>
-                    <li>Manufacturing</li>
-                    <li>Scalability</li>
-                    <li>Enterprise grade</li>
-                </ul>
-                <p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p>
-            </div>
-            <div class="association-card">
-                <h4>Competitor 3</h4>
-                <ul>
-                    <li>Cloud platform</li>
-                    <li>Integrations</li>
-                    <li>POS / Retail</li>
-                    <li>Modern ecosystem</li>
-                </ul>
-                <p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== RECOMMENDATIONS ===== -->
-<section class="py-16 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-center mb-4">Strategic Recommendations</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            Based on the audit, we deliver specific steps to improve AI visibility.
-            Not generic advice — a prioritized 30–60 day roadmap.
-        </p>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">📂</div>
-                <h3 class="font-bold">Category Ownership</h3>
-                <p class="text-sm text-slate-600">Create content that AI uses as a category knowledge source</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">📊</div>
-                <h3 class="font-bold">Competitive Positioning</h3>
-                <p class="text-sm text-slate-600">Structured competitor comparisons for AI to reference</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">🤝</div>
-                <h3 class="font-bold">Trust Signals</h3>
-                <p class="text-sm text-slate-600">Reviews, case studies, and public mentions</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">🛡️</div>
-                <h3 class="font-bold">Hallucination Shield</h3>
-                <p class="text-sm text-slate-600">Content that AI treats as authoritative source</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">⚡</div>
-                <h3 class="font-bold">Modern Positioning</h3>
-                <p class="text-sm text-slate-600">Highlight cloud, API, automation, digital workflows</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">📈</div>
-                <h3 class="font-bold">Continuous Monitoring</h3>
-                <p class="text-sm text-slate-600">Re-audit in 30–60 days to track progress</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== CONTENT TEMPLATES ===== -->
-<section class="py-16 px-6 bg-slate-50">
-    <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-center mb-4">Ready-to-Use Content Templates</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            Along with the report, you receive ready-made templates you can deploy immediately.
-        </p>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center">
-                <div class="text-3xl mb-2">📄</div>
-                <h4 class="font-bold text-sm">Category Page</h4>
-                <p class="text-xs text-slate-500">For queries without brand mention</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center">
-                <div class="text-3xl mb-2">⚖️</div>
-                <h4 class="font-bold text-sm">Competitive Comparisons</h4>
-                <p class="text-xs text-slate-500">Structured tables for AI</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center">
-                <div class="text-3xl mb-2">⭐</div>
-                <h4 class="font-bold text-sm">Reviews & Testimonials</h4>
-                <p class="text-xs text-slate-500">Trust signals for AI</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center">
-                <div class="text-3xl mb-2">🚀</div>
-                <h4 class="font-bold text-sm">Modern Capabilities</h4>
-                <p class="text-xs text-slate-500">Cloud, API, automation</p>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -482,24 +421,24 @@
             You're Not Buying SEO.
         </h2>
         <p class="text-xl text-blue-200 max-w-3xl mx-auto">
-            You're discovering what AI thinks about your company
-            <span class="text-white font-bold">before your customers do</span>.
+            You're buying a system that makes AI recommend you
+            <span class="text-white font-bold">before your clients even start searching</span>.
         </p>
         <div class="mt-8 grid sm:grid-cols-3 gap-6 text-left">
             <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
                 <div class="text-3xl mb-2">🧠</div>
-                <h4 class="font-bold">What AI Says</h4>
-                <p class="text-sm text-blue-200">Does it recommend, ignore, or distort your brand?</p>
+                <h4 class="font-bold">What AI says about you now</h4>
+                <p class="text-sm text-blue-200">Diagnostics shows it in 48 hours</p>
             </div>
             <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
                 <div class="text-3xl mb-2">🎯</div>
-                <h4 class="font-bold">Who Gets Recommended</h4>
-                <p class="text-sm text-blue-200">Which competitors win clients instead of you</p>
+                <h4 class="font-bold">How to get into the shortlist</h4>
+                <p class="text-sm text-blue-200">Strategy gives you a step-by-step plan</p>
             </div>
             <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                <div class="text-3xl mb-2">🛡️</div>
-                <h4 class="font-bold">How to Fix It</h4>
-                <p class="text-sm text-blue-200">Concrete 30–60 day action plan</p>
+                <div class="text-3xl mb-2">📈</div>
+                <h4 class="font-bold">How to track progress</h4>
+                <p class="text-sm text-blue-200">Monitoring and strategy adjustment</p>
             </div>
         </div>
     </div>
@@ -509,25 +448,34 @@
 <section class="py-20 px-6 bg-white">
     <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
-            AI Visibility Audit
+            Start with Diagnostics
         </h2>
-        <p class="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">
+        <p class="text-lg text-slate-600 mb-4 max-w-2xl mx-auto">
             15–20 pages of analytics · 10+ user scenarios ·
-            competitive benchmarking · 48-hour delivery
+            competitor benchmarking · 48-hour delivery
         </p>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 max-w-2xl mx-auto mb-6">
+            <p class="text-sm text-amber-800 font-medium">
+                ⚡ <span class="font-bold">Especially important for new businesses abroad:</span> 
+                we show how AI can already build trust in your brand, 
+                even if you've just entered the market.
+            </p>
+        </div>
+
         <div class="text-5xl font-black text-blue-600 mb-2">
             $99
         </div>
         <p class="text-sm text-slate-500 mb-8">
-            Manual expert analysis · No automated generation
+            Diagnostics — the first step to an AI Visibility Strategy
         </p>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.kate.taratuta@gmail.com&su=AI%20Visibility%20Audit%20Request"
            target="_blank"
            class="gradient-cta text-white px-10 py-5 rounded-xl text-xl font-bold shadow-lg hover:shadow-xl transition-all inline-block">
-            Get AI Visibility Audit — $99
+            Start Diagnostics — $99
         </a>
         <p class="text-sm text-slate-400 mt-4">
-            Submit your request and we'll respond within 2 hours
+            Send us a message and we'll get back to you shortly
         </p>
     </div>
 </section>
@@ -536,7 +484,7 @@
 <footer class="bg-slate-900 text-slate-400 py-8 px-6 text-center text-sm border-t border-slate-800">
     <div class="max-w-5xl mx-auto">
         <p class="font-medium text-white mb-2">Ekaterina Taratuta, PhD</p>
-        <p>Founding ML Engineer · AI Systems Builder · Business Analyst</p>
+        <p>AI Systems Builder · ML Engineer · Business Analyst</p>
         <div class="flex flex-wrap justify-center gap-4 mt-2">
             <a href="https://www.linkedin.com/in/ekaterina-taratuta" target="_blank" class="footer-link">LinkedIn</a>
             <a href="https://github.com/ETSystemsAI" target="_blank" class="footer-link">GitHub</a>
