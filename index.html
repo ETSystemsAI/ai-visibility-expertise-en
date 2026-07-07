@@ -32,17 +32,6 @@
             border-radius: 9999px;
             display: inline-block;
         }
-        .price-tag {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #1e293b;
-            line-height: 1;
-        }
-        .price-tag span {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #64748b;
-        }
         .section-title {
             font-size: 2.25rem;
             font-weight: 800;
@@ -51,7 +40,6 @@
         }
         @media (max-width: 768px) {
             .section-title { font-size: 1.75rem; }
-            .price-tag { font-size: 2.25rem; }
         }
         .table-wrap { overflow-x: auto; }
         .table-wrap table {
@@ -141,19 +129,25 @@
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        .flag-icon {
-            display: inline-block;
-            width: 1.25rem;
-            height: 0.875rem;
-            border-radius: 2px;
-            margin-right: 0.25rem;
-            vertical-align: middle;
-            background: #1a2f4f;
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            background: rgba(255,255,255,0.05);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+        .lang-switch:hover {
+            background: rgba(255,255,255,0.1);
             color: white;
-            font-size: 0.6rem;
-            text-align: center;
-            line-height: 0.875rem;
-            font-weight: 700;
+        }
+        .lang-switch .active-lang {
+            color: white;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -166,8 +160,10 @@
             <span class="badge bg-white/10 text-white border border-white/20">
                 Generative AI Visibility Audit
             </span>
-            <a href="https://etsystemsai.github.io/ai-visibility-expertise/" class="text-xs text-blue-300 hover:text-white underline underline-offset-2 transition">
-                🇷🇸 Српска верзија
+            <a href="https://etsystemsai.github.io/ai-visibility-expertise/" class="lang-switch">
+                <span class="active-lang">🇬🇧 EN</span>
+                <span class="text-slate-500">/</span>
+                <span>🇷🇸 СР</span>
             </a>
         </div>
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
@@ -526,7 +522,7 @@
 <section class="py-20 px-6 bg-white">
     <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
-            AI Visibility Audit
+            Pilot AI Visibility Audit
         </h2>
         <p class="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">
             15–20 pages of analytics · 10+ user scenarios ·
