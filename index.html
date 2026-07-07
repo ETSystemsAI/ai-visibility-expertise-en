@@ -140,7 +140,9 @@
             border-radius: 9999px;
             border: 1px solid rgba(255,255,255,0.1);
             transition: 0.3s;
+            cursor: pointer;
             text-decoration: none;
+            user-select: none;
         }
         .lang-switch:hover {
             background: rgba(255,255,255,0.1);
@@ -150,6 +152,7 @@
             color: white;
             font-weight: 600;
         }
+        .lang-hidden { display: none; }
     </style>
 </head>
 <body>
@@ -161,37 +164,66 @@
             <span class="badge bg-white/10 text-white border border-white/20">
                 Generative AI Visibility Audit
             </span>
-            <a href="https://etsystemsai.github.io/ai-visibility-expertise/" class="lang-switch">
-                <span class="active-lang">🇬🇧 EN</span>
+            <!-- Переключатель языков (без внешних ссылок) -->
+            <div class="lang-switch" onclick="toggleLanguage()" id="langToggle">
+                <span id="langEnLabel" class="active-lang">🇬🇧 EN</span>
                 <span class="text-slate-500">/</span>
-                <span>🇷🇸 СР</span>
-            </a>
+                <span id="langSrLabel">🇷🇸 СР</span>
+            </div>
         </div>
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-            Does Your Brand Appear in<br />
-            <span class="text-blue-300">ChatGPT & Claude Recommendations?</span>
-        </h1>
-        <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-            We analyze how generative AI systems perceive your company, products, and competitors.
-            15–20 pages of analytics, 10+ real user scenarios, competitor benchmarking —
-            starting at <span class="text-white font-bold">$99</span>.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.kate.taratuta@gmail.com&su=AI%20Visibility%20Audit%20Request"
-               target="_blank"
-               class="gradient-cta text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all inline-block">
-                Get AI Visibility Audit — $99
-            </a>
-            <span class="text-sm text-slate-400 hidden sm:inline">· 48-hour delivery</span>
+
+        <!-- АНГЛИЙСКАЯ ВЕРСИЯ ХЕРО -->
+        <div id="heroEn">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                Does Your Brand Appear in<br />
+                <span class="text-blue-300">ChatGPT & Claude Recommendations?</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+                We analyze how generative AI systems perceive your company, products, and competitors.
+                15–20 pages of analytics, 10+ real user scenarios, competitor benchmarking —
+                starting at <span class="text-white font-bold">$99</span>.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.kate.taratuta@gmail.com&su=AI%20Visibility%20Audit%20Request"
+                   target="_blank"
+                   class="gradient-cta text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all inline-block">
+                    Get AI Visibility Audit — $99
+                </a>
+                <span class="text-sm text-slate-400 hidden sm:inline">· 48-hour delivery</span>
+            </div>
+            <p class="text-sm text-slate-400 mt-4">
+                Manual expert analysis · No automated generation
+            </p>
         </div>
-        <p class="text-sm text-slate-400 mt-4">
-            Manual expert analysis · No automated generation
-        </p>
+
+        <!-- СЕРБСКАЯ ВЕРСИЯ ХЕРО (СКРЫТА ПО УМОЛЧАНИЮ) -->
+        <div id="heroSr" class="lang-hidden">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                Да ли се ваш бренд појављује у<br />
+                <span class="text-blue-300">препорукама ChatGPT и Claude?</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+                Анализирамо како генеративни АИ системи перципирају вашу компанију,
+                производе и конкуренте. 15–20 страница аналитике, 10+ сценарија,
+                поређење са конкурентима — за <span class="text-white font-bold">99€</span>.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.kate.taratuta@gmail.com&su=AI%20Visibility%20Audit%20Request"
+                   target="_blank"
+                   class="gradient-cta text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all inline-block">
+                    Наручите AI Visibility Audit за 99€
+                </a>
+                <span class="text-sm text-slate-400 hidden sm:inline">· 48 сати</span>
+            </div>
+            <p class="text-sm text-slate-400 mt-4">
+                Ручни рад експерта · Без аутоматске генерације
+            </p>
+        </div>
     </div>
 </header>
 
-<!-- ===== VALUE PROPOSITION ===== -->
-<section class="py-16 px-6 bg-white">
+<!-- ===== VALUE PROPOSITION (EN) ===== -->
+<section id="valueEn" class="py-16 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
         <div class="grid md:grid-cols-3 gap-8 text-center">
             <div>
@@ -213,8 +245,31 @@
     </div>
 </section>
 
-<!-- ===== WHAT'S INCLUDED ===== -->
-<section class="py-16 px-6 bg-slate-50">
+<!-- ===== VALUE PROPOSITION (SR) ===== -->
+<section id="valueSr" class="py-16 px-6 bg-white lang-hidden">
+    <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+                <div class="text-4xl mb-2">🧠</div>
+                <h3 class="font-bold text-lg">Шта АИ мисли о вама</h3>
+                <p class="text-sm text-slate-600">Препоручује, игнорише или изобличује?</p>
+            </div>
+            <div>
+                <div class="text-4xl mb-2">🏆</div>
+                <h3 class="font-bold text-lg">Ко добија ваше клијенте</h3>
+                <p class="text-sm text-slate-600">Које конкуренте АИ препоручује уместо вас</p>
+            </div>
+            <div>
+                <div class="text-4xl mb-2">🛡️</div>
+                <h3 class="font-bold text-lg">АИ халуцинације</h3>
+                <p class="text-sm text-slate-600">Које грешке и неточности АИ шири о вама</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHAT'S INCLUDED (EN) ===== -->
+<section id="includedEn" class="py-16 px-6 bg-slate-50">
     <div class="max-w-5xl mx-auto">
         <h2 class="section-title text-center mb-4">What's Included in the Report</h2>
         <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
@@ -248,68 +303,90 @@
     </div>
 </section>
 
-<!-- ===== AI BRAND SCORECARD ===== -->
-<section class="py-16 px-6 bg-white">
+<!-- ===== WHAT'S INCLUDED (SR) ===== -->
+<section id="includedSr" class="py-16 px-6 bg-slate-50 lang-hidden">
     <div class="max-w-5xl mx-auto">
-        <h2 class="section-title text-center mb-4">AI Brand Scorecard</h2>
+        <h2 class="section-title text-center mb-4">Шта улази у извештај</h2>
         <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-            We evaluate your brand across six key parameters that determine
-            AI recommendation likelihood.
+            Није само дијагноза — већ потпуно истраживање тога како АИ
+            перципира ваш бренд, производе и конкурентски пејзаж.
         </p>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="text-2xl mb-2">🔍</div>
-                <h3 class="font-bold">Brand Awareness</h3>
-                <p class="text-sm text-slate-600">Does AI even know your brand exists?</p>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-card border border-slate-100">
+                <h3 class="font-bold text-xl text-blue-600 mb-4">Основна аналитика</h3>
+                <ul class="space-y-3 text-sm text-slate-700">
+                    <li>✓ Executive Summary и AI Visibility Score</li>
+                    <li>✓ AI Brand Scorecard по 6 димензија</li>
+                    <li>✓ Поређење са 3–4 конкурента</li>
+                    <li>✓ Мапа АИ-асоцијација бренда</li>
+                    <li>✓ Hallucination Audit</li>
+                    <li>✓ Акциони план за 30–60 дана</li>
+                </ul>
             </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="text-2xl mb-2">📂</div>
-                <h3 class="font-bold">Category Visibility</h3>
-                <p class="text-sm text-slate-600">Do you appear in recommendations without brand mention?</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="text-2xl mb-2">🤝</div>
-                <h3 class="font-bold">Trust Signals</h3>
-                <p class="text-sm text-slate-600">Reviews, case studies, social proof?</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="text-2xl mb-2">⚡</div>
-                <h3 class="font-bold">Modern Perception</h3>
-                <p class="text-sm text-slate-600">Does AI see your product as modern?</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="text-2xl mb-2">🏁</div>
-                <h3 class="font-bold">Competitive Position</h3>
-                <p class="text-sm text-slate-600">Who does AI recommend instead of you?</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="text-2xl mb-2">⚠️</div>
-                <h3 class="font-bold">Hallucination Risk</h3>
-                <p class="text-sm text-slate-600">What errors does AI spread about you?</p>
+            <div class="bg-white p-8 rounded-2xl shadow-card border border-slate-100">
+                <h3 class="font-bold text-xl text-blue-600 mb-4">Доказна база</h3>
+                <ul class="space-y-3 text-sm text-slate-700">
+                    <li>✓ Комплетни одговори ChatGPT и Claude</li>
+                    <li>✓ Сви тестирани упити</li>
+                    <li>✓ Скриншотови сесија</li>
+                    <li>✓ Списак пронађених АИ грешака</li>
+                    <li>✓ Мапа конкурената</li>
+                    <li>✓ Приоритетне препоруке</li>
+                </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== COMPETITIVE BENCHMARKING ===== -->
-<section class="py-16 px-6 bg-slate-50">
+<!-- ============================================================ -->
+<!-- ОСТАЛЬНЫЕ БЛОКИ (Scorecard, таблица, Hallucination, Association Map, Recommendations, Templates, Why It Works, CTA, Footer) -->
+<!-- ДЛЯ КАЖДОГО БЛОКА ЕСТЬ ДВЕ ВЕРСИИ: EN и SR -->
+<!-- ============================================================ -->
+
+<!-- ===== AI BRAND SCORECARD (EN) ===== -->
+<section id="scorecardEn" class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-center mb-4">AI Brand Scorecard</h2>
+        <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+            We evaluate your brand across six key parameters that determine AI recommendation likelihood.
+        </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">🔍</div><h3 class="font-bold">Brand Awareness</h3><p class="text-sm text-slate-600">Does AI even know your brand exists?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">📂</div><h3 class="font-bold">Category Visibility</h3><p class="text-sm text-slate-600">Do you appear in recommendations without brand mention?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">🤝</div><h3 class="font-bold">Trust Signals</h3><p class="text-sm text-slate-600">Reviews, case studies, social proof?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">⚡</div><h3 class="font-bold">Modern Perception</h3><p class="text-sm text-slate-600">Does AI see your product as modern?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">🏁</div><h3 class="font-bold">Competitive Position</h3><p class="text-sm text-slate-600">Who does AI recommend instead of you?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">⚠️</div><h3 class="font-bold">Hallucination Risk</h3><p class="text-sm text-slate-600">What errors does AI spread about you?</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== AI BRAND SCORECARD (SR) ===== -->
+<section id="scorecardSr" class="py-16 px-6 bg-white lang-hidden">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-center mb-4">AI Brand Scorecard</h2>
+        <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+            Оцењујемо ваш бренд по шест кључних параметара који одређују вероватноћу уласка у АИ препоруке.
+        </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">🔍</div><h3 class="font-bold">Препознатљивост</h3><p class="text-sm text-slate-600">Да ли АИ уопште зна за ваш бренд?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">📂</div><h3 class="font-bold">Категоријска видљивост</h3><p class="text-sm text-slate-600">Појављујете ли се без помињања бренда?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">🤝</div><h3 class="font-bold">Поверење</h3><p class="text-sm text-slate-600">Има ли рецензија, студија случаја, сигнала поверења?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">⚡</div><h3 class="font-bold">Савременост</h3><p class="text-sm text-slate-600">Да ли АИ доживљава производ као савремен?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">🏁</div><h3 class="font-bold">Конкурентска позиција</h3><p class="text-sm text-slate-600">Кога АИ препоручује уместо вас?</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="text-2xl mb-2">⚠️</div><h3 class="font-bold">Hallucination Risk</h3><p class="text-sm text-slate-600">Које грешке АИ шири о вама?</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COMPETITIVE BENCHMARKING (EN) ===== -->
+<section id="benchmarkEn" class="py-16 px-6 bg-slate-50">
     <div class="max-w-5xl mx-auto">
         <h2 class="section-title text-center mb-4">Competitive AI Positioning</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            How ChatGPT and Claude position your brand versus competitors.
-            See which associations are already formed — and which are critically missing.
-        </p>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">How ChatGPT and Claude position your brand versus competitors. See which associations are already formed — and which are critically missing.</p>
         <div class="table-wrap bg-white rounded-xl border border-slate-200 shadow-card">
             <table>
-                <thead>
-                    <tr>
-                        <th>Association</th>
-                        <th>Your Brand</th>
-                        <th>Competitor 1</th>
-                        <th>Competitor 2</th>
-                        <th>Competitor 3</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Association</th><th>Your Brand</th><th>Competitor 1</th><th>Competitor 2</th><th>Competitor 3</th></tr></thead>
                 <tbody>
                     <tr><td>Cloud-first</td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td></tr>
                     <tr><td>Ease of use</td><td><span class="neutral-gray">—</span></td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td></tr>
@@ -323,226 +400,200 @@
                 </tbody>
             </table>
         </div>
-        <p class="text-xs text-slate-500 mt-3 text-center">
-            ✓ — strong association &nbsp;·&nbsp; ✕ — absent &nbsp;·&nbsp; — — neutral / weak
-        </p>
+        <p class="text-xs text-slate-500 mt-3 text-center">✓ — strong association &nbsp;·&nbsp; ✕ — absent &nbsp;·&nbsp; — — neutral / weak</p>
     </div>
 </section>
 
-<!-- ===== HALLUCINATION AUDIT ===== -->
-<section class="py-16 px-6 bg-white">
+<!-- ===== COMPETITIVE BENCHMARKING (SR) ===== -->
+<section id="benchmarkSr" class="py-16 px-6 bg-slate-50 lang-hidden">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-center mb-4">Поређење АИ-асоцијација</h2>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">Како ChatGPT и Claude позиционирају ваш бренд у односу на конкуренте. Видећете које асоцијације су већ формиране — а које критички недостају.</p>
+        <div class="table-wrap bg-white rounded-xl border border-slate-200 shadow-card">
+            <table>
+                <thead><tr><th>Асоцијација</th><th>Ваш бренд</th><th>Конкурент 1</th><th>Конкурент 2</th><th>Конкурент 3</th></tr></thead>
+                <tbody>
+                    <tr><td>Cloud-first</td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td></tr>
+                    <tr><td>Једноставност коришћења</td><td><span class="neutral-gray">—</span></td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td></tr>
+                    <tr><td>Скалабилност</td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td></tr>
+                    <tr><td>Мали и средњи бизнис</td><td><span class="neutral-gray">—</span></td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td></tr>
+                    <tr><td>ERP / Производња</td><td><span class="check-green">✓</span></td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="neutral-gray">—</span></td></tr>
+                    <tr><td>Локални експерт</td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td></tr>
+                    <tr><td>Савремен интерфејс</td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="neutral-gray">—</span></td><td><span class="check-green">✓</span></td></tr>
+                    <tr><td>Интеграције / API</td><td><span class="neutral-gray">—</span></td><td><span class="neutral-gray">—</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td></tr>
+                    <tr><td>Рецензије / поверење</td><td><span class="cross-red">✕</span></td><td><span class="check-green">✓</span></td><td><span class="check-green">✓</span></td><td><span class="neutral-gray">—</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-xs text-slate-500 mt-3 text-center">✓ — јака асоцијација &nbsp;·&nbsp; ✕ — недостаје &nbsp;·&nbsp; — — неутрална / слаба</p>
+    </div>
+</section>
+
+<!-- ===== HALLUCINATION AUDIT (EN) ===== -->
+<section id="hallucinationEn" class="py-16 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
         <h2 class="section-title text-center mb-4">Hallucination Audit</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            What errors and inaccuracies does AI make about your company?
-            Most users wouldn't notice — but these impact trust and conversion.
-        </p>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">What errors and inaccuracies does AI make about your company? Most users wouldn't notice — but these impact trust and conversion.</p>
         <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8">
-            <div class="hallucination-row">
-                <div><span class="label">AI claims</span><br /><span class="ai-says">"Your product integrates with PayPal"</span></div>
-                <div><span class="label">Reality</span><br /><span class="reality">Integration not confirmed in official sources</span></div>
-            </div>
-            <div class="hallucination-row">
-                <div><span class="label">AI claims</span><br /><span class="ai-says">"Real-time bank synchronization available"</span></div>
-                <div><span class="label">Reality</span><br /><span class="reality">No public evidence of this feature exists</span></div>
-            </div>
-            <div class="hallucination-row">
-                <div><span class="label">AI claims</span><br /><span class="ai-says">"Users on forums recommend you as the best solution"</span></div>
-                <div><span class="label">Reality</span><br /><span class="reality">No significant forum discussions found</span></div>
-            </div>
-            <div class="hallucination-row">
-                <div><span class="label">AI claims</span><br /><span class="ai-says">"Competitor is more modern because they have cloud"</span></div>
-                <div><span class="label">Reality</span><br /><span class="reality">You also have cloud options — AI just doesn't know it</span></div>
-            </div>
+            <div class="hallucination-row"><div><span class="label">AI claims</span><br /><span class="ai-says">"Your product integrates with PayPal"</span></div><div><span class="label">Reality</span><br /><span class="reality">Integration not confirmed in official sources</span></div></div>
+            <div class="hallucination-row"><div><span class="label">AI claims</span><br /><span class="ai-says">"Real-time bank synchronization available"</span></div><div><span class="label">Reality</span><br /><span class="reality">No public evidence of this feature exists</span></div></div>
+            <div class="hallucination-row"><div><span class="label">AI claims</span><br /><span class="ai-says">"Users on forums recommend you as the best solution"</span></div><div><span class="label">Reality</span><br /><span class="reality">No significant forum discussions found</span></div></div>
+            <div class="hallucination-row"><div><span class="label">AI claims</span><br /><span class="ai-says">"Competitor is more modern because they have cloud"</span></div><div><span class="label">Reality</span><br /><span class="reality">You also have cloud options — AI just doesn't know it</span></div></div>
         </div>
-        <p class="text-sm text-slate-600 mt-4 text-center max-w-2xl mx-auto">
-            We document every error and give you a "Hallucination Shield" — content that AI will use as a reliable source.
-        </p>
+        <p class="text-sm text-slate-600 mt-4 text-center max-w-2xl mx-auto">We document every error and give you a "Hallucination Shield" — content that AI will use as a reliable source.</p>
     </div>
 </section>
 
-<!-- ===== AI ASSOCIATION MAP ===== -->
-<section class="py-16 px-6 bg-slate-50">
+<!-- ===== HALLUCINATION AUDIT (SR) ===== -->
+<section id="hallucinationSr" class="py-16 px-6 bg-white lang-hidden">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-center mb-4">Hallucination Audit</h2>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">Које грешке и неточности АИ прави о вашој компанији? Већина корисника то не примети — али то утиче на поверење и конверзију.</p>
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8">
+            <div class="hallucination-row"><div><span class="label">АИ тврди</span><br /><span class="ai-says">"Ваш производ се интегрише са PayPal-ом"</span></div><div><span class="label">Стварност</span><br /><span class="reality">Интеграција није потврђена у званичним изворима</span></div></div>
+            <div class="hallucination-row"><div><span class="label">АИ тврди</span><br /><span class="ai-says">"Имате синхронизацију са банкама у реалном времену"</span></div><div><span class="label">Стварност</span><br /><span class="reality">Нема јавних доказа за ову функцију</span></div></div>
+            <div class="hallucination-row"><div><span class="label">АИ тврди</span><br /><span class="ai-says">"Корисници на форумима препоручују вас као најбоље решење"</span></div><div><span class="label">Стварност</span><br /><span class="reality">Нису пронађене значајне дискусије на форумима</span></div></div>
+            <div class="hallucination-row"><div><span class="label">АИ тврди</span><br /><span class="ai-says">"Конкурент је савременији јер има cloud"</span></div><div><span class="label">Стварност</span><br /><span class="reality">Ви такође имате cloud опције — АИ то само не зна</span></div></div>
+        </div>
+        <p class="text-sm text-slate-600 mt-4 text-center max-w-2xl mx-auto">Сваку грешку документујемо и дајемо вам "Hallucination Shield" — садржај који ће АИ користити као поуздан извор.</p>
+    </div>
+</section>
+
+<!-- ===== AI ASSOCIATION MAP (EN) ===== -->
+<section id="mapEn" class="py-16 px-6 bg-slate-50">
     <div class="max-w-5xl mx-auto">
         <h2 class="section-title text-center mb-4">AI Association Map</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            How AI perceives your brand versus competitors. See which associations
-            are already formed — and which are critically missing.
-        </p>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">How AI perceives your brand versus competitors. See which associations are already formed — and which are critically missing.</p>
         <div class="association-grid">
-            <div class="association-card">
-                <h4>Your Brand</h4>
-                <ul>
-                    <li>Stability & reliability</li>
-                    <li>Local market expertise</li>
-                    <li>Accounting & compliance</li>
-                    <li>Long-standing presence</li>
-                </ul>
-                <p class="text-xs text-red-500 mt-2 font-semibold">❌ Missing: cloud, modern, automation</p>
-            </div>
-            <div class="association-card">
-                <h4>Competitor 1</h4>
-                <ul>
-                    <li>Cloud-first</li>
-                    <li>Easy to start</li>
-                    <li>SMB focus</li>
-                    <li>Modern interface</li>
-                </ul>
-                <p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p>
-            </div>
-            <div class="association-card">
-                <h4>Competitor 2</h4>
-                <ul>
-                    <li>ERP leader</li>
-                    <li>Manufacturing</li>
-                    <li>Scalability</li>
-                    <li>Enterprise grade</li>
-                </ul>
-                <p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p>
-            </div>
-            <div class="association-card">
-                <h4>Competitor 3</h4>
-                <ul>
-                    <li>Cloud platform</li>
-                    <li>Integrations</li>
-                    <li>POS / Retail</li>
-                    <li>Modern ecosystem</li>
-                </ul>
-                <p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p>
-            </div>
+            <div class="association-card"><h4>Your Brand</h4><ul><li>Stability & reliability</li><li>Local market expertise</li><li>Accounting & compliance</li><li>Long-standing presence</li></ul><p class="text-xs text-red-500 mt-2 font-semibold">❌ Missing: cloud, modern, automation</p></div>
+            <div class="association-card"><h4>Competitor 1</h4><ul><li>Cloud-first</li><li>Easy to start</li><li>SMB focus</li><li>Modern interface</li></ul><p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p></div>
+            <div class="association-card"><h4>Competitor 2</h4><ul><li>ERP leader</li><li>Manufacturing</li><li>Scalability</li><li>Enterprise grade</li></ul><p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p></div>
+            <div class="association-card"><h4>Competitor 3</h4><ul><li>Cloud platform</li><li>Integrations</li><li>POS / Retail</li><li>Modern ecosystem</li></ul><p class="text-xs text-green-600 mt-2 font-semibold">✓ Strong positioning</p></div>
         </div>
     </div>
 </section>
 
-<!-- ===== RECOMMENDATIONS ===== -->
-<section class="py-16 px-6 bg-white">
+<!-- ===== AI ASSOCIATION MAP (SR) ===== -->
+<section id="mapSr" class="py-16 px-6 bg-slate-50 lang-hidden">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-center mb-4">Мапа АИ-асоцијација</h2>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">Како АИ перципира ваш бренд и конкуренте. Показујемо које асоцијације су већ формиране — а које критички недостају.</p>
+        <div class="association-grid">
+            <div class="association-card"><h4>Ваш бренд</h4><ul><li>Стабилност и поузданост</li><li>Локално тржиште</li><li>Рачуноводство и усклађеност</li><li>Вишегодишње присуство</li></ul><p class="text-xs text-red-500 mt-2 font-semibold">❌ Недостаје: cloud, савременост, аутоматизација</p></div>
+            <div class="association-card"><h4>Конкурент 1</h4><ul><li>Cloud-first</li><li>Једноставан старт</li><li>Мали бизнис</li><li>Савремен интерфејс</li></ul><p class="text-xs text-green-600 mt-2 font-semibold">✓ Јако позиционирање</p></div>
+            <div class="association-card"><h4>Конкурент 2</h4><ul><li>ERP лидер</li><li>Производња</li><li>Скалабилност</li><li>Корпоративни ниво</li></ul><p class="text-xs text-green-600 mt-2 font-semibold">✓ Јако позиционирање</p></div>
+            <div class="association-card"><h4>Конкурент 3</h4><ul><li>Cloud платформа</li><li>Интеграције</li><li>POS / Трговина</li><li>Савремен екосистем</li></ul><p class="text-xs text-green-600 mt-2 font-semibold">✓ Јако позиционирање</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RECOMMENDATIONS (EN) ===== -->
+<section id="recsEn" class="py-16 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
         <h2 class="section-title text-center mb-4">Strategic Recommendations</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            Based on the audit, we deliver specific steps to improve AI visibility.
-            Not generic advice — a prioritized 30–60 day roadmap.
-        </p>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">Based on the audit, we deliver specific steps to improve AI visibility. Not generic advice — a prioritized 30–60 day roadmap.</p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">📂</div>
-                <h3 class="font-bold">Category Ownership</h3>
-                <p class="text-sm text-slate-600">Create content that AI uses as a category knowledge source</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">📊</div>
-                <h3 class="font-bold">Competitive Positioning</h3>
-                <p class="text-sm text-slate-600">Structured competitor comparisons for AI to reference</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">🤝</div>
-                <h3 class="font-bold">Trust Signals</h3>
-                <p class="text-sm text-slate-600">Reviews, case studies, and public mentions</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">🛡️</div>
-                <h3 class="font-bold">Hallucination Shield</h3>
-                <p class="text-sm text-slate-600">Content that AI treats as authoritative source</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">⚡</div>
-                <h3 class="font-bold">Modern Positioning</h3>
-                <p class="text-sm text-slate-600">Highlight cloud, API, automation, digital workflows</p>
-            </div>
-            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <div class="pillar-icon">📈</div>
-                <h3 class="font-bold">Continuous Monitoring</h3>
-                <p class="text-sm text-slate-600">Re-audit in 30–60 days to track progress</p>
-            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">📂</div><h3 class="font-bold">Category Ownership</h3><p class="text-sm text-slate-600">Create content that AI uses as a category knowledge source</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">📊</div><h3 class="font-bold">Competitive Positioning</h3><p class="text-sm text-slate-600">Structured competitor comparisons for AI to reference</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">🤝</div><h3 class="font-bold">Trust Signals</h3><p class="text-sm text-slate-600">Reviews, case studies, and public mentions</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">🛡️</div><h3 class="font-bold">Hallucination Shield</h3><p class="text-sm text-slate-600">Content that AI treats as authoritative source</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">⚡</div><h3 class="font-bold">Modern Positioning</h3><p class="text-sm text-slate-600">Highlight cloud, API, automation, digital workflows</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">📈</div><h3 class="font-bold">Continuous Monitoring</h3><p class="text-sm text-slate-600">Re-audit in 30–60 days to track progress</p></div>
         </div>
     </div>
 </section>
 
-<!-- ===== CONTENT TEMPLATES ===== -->
-<section class="py-16 px-6 bg-slate-50">
+<!-- ===== RECOMMENDATIONS (SR) ===== -->
+<section id="recsSr" class="py-16 px-6 bg-white lang-hidden">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-center mb-4">Препоруке за побољшање</h2>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">На основу аудита дајемо конкретне кораке за повећање АИ видљивости. То нису општи савети — већ приоритетни план за 30–60 дана.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">📂</div><h3 class="font-bold">Category Ownership</h3><p class="text-sm text-slate-600">Садржај који АИ користи као извор знања о категорији</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">📊</div><h3 class="font-bold">Competitive Positioning</h3><p class="text-sm text-slate-600">Структурирана поређења са конкурентима</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">🤝</div><h3 class="font-bold">Trust Signals</h3><p class="text-sm text-slate-600">Рецензије, студије случаја, јавна помињања</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">🛡️</div><h3 class="font-bold">Hallucination Shield</h3><p class="text-sm text-slate-600">Садржај који АИ третира као ауторитативан извор</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">⚡</div><h3 class="font-bold">Modern Positioning</h3><p class="text-sm text-slate-600">Истаћи cloud, API, аутоматизацију, дигиталне процесе</p></div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200"><div class="pillar-icon">📈</div><h3 class="font-bold">Continuous Monitoring</h3><p class="text-sm text-slate-600">Поновни аудит за 30–60 дана ради праћења напретка</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTENT TEMPLATES (EN) ===== -->
+<section id="templatesEn" class="py-16 px-6 bg-slate-50">
     <div class="max-w-5xl mx-auto">
         <h2 class="section-title text-center mb-4">Ready-to-Use Content Templates</h2>
-        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            Along with the report, you receive ready-made templates you can deploy immediately.
-        </p>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">Along with the report, you receive ready-made templates you can deploy immediately.</p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center">
-                <div class="text-3xl mb-2">📄</div>
-                <h4 class="font-bold text-sm">Category Page</h4>
-                <p class="text-xs text-slate-500">For queries without brand mention</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center">
-                <div class="text-3xl mb-2">⚖️</div>
-                <h4 class="font-bold text-sm">Competitive Comparisons</h4>
-                <p class="text-xs text-slate-500">Structured tables for AI</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center">
-                <div class="text-3xl mb-2">⭐</div>
-                <h4 class="font-bold text-sm">Reviews & Testimonials</h4>
-                <p class="text-xs text-slate-500">Trust signals for AI</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center">
-                <div class="text-3xl mb-2">🚀</div>
-                <h4 class="font-bold text-sm">Modern Capabilities</h4>
-                <p class="text-xs text-slate-500">Cloud, API, automation</p>
-            </div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center"><div class="text-3xl mb-2">📄</div><h4 class="font-bold text-sm">Category Page</h4><p class="text-xs text-slate-500">For queries without brand mention</p></div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center"><div class="text-3xl mb-2">⚖️</div><h4 class="font-bold text-sm">Competitive Comparisons</h4><p class="text-xs text-slate-500">Structured tables for AI</p></div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center"><div class="text-3xl mb-2">⭐</div><h4 class="font-bold text-sm">Reviews & Testimonials</h4><p class="text-xs text-slate-500">Trust signals for AI</p></div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center"><div class="text-3xl mb-2">🚀</div><h4 class="font-bold text-sm">Modern Capabilities</h4><p class="text-xs text-slate-500">Cloud, API, automation</p></div>
         </div>
     </div>
 </section>
 
-<!-- ===== WHY IT WORKS ===== -->
-<section class="py-16 px-6 bg-blue-900 text-white">
+<!-- ===== CONTENT TEMPLATES (SR) ===== -->
+<section id="templatesSr" class="py-16 px-6 bg-slate-50 lang-hidden">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="section-title text-center mb-4">Готови шаблони садржаја</h2>
+        <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">Уз извештај добијате и готове текстове које можете одмах користити на сајту.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center"><div class="text-3xl mb-2">📄</div><h4 class="font-bold text-sm">Категоријска страница</h4><p class="text-xs text-slate-500">За упите без помињања бренда</p></div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center"><div class="text-3xl mb-2">⚖️</div><h4 class="font-bold text-sm">Поређење са конкурентима</h4><p class="text-xs text-slate-500">Структуриране табеле за АИ</p></div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center"><div class="text-3xl mb-2">⭐</div><h4 class="font-bold text-sm">Рецензије корисника</h4><p class="text-xs text-slate-500">Сигнали поверења за АИ</p></div>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-card text-center"><div class="text-3xl mb-2">🚀</div><h4 class="font-bold text-sm">Савремене могућности</h4><p class="text-xs text-slate-500">Cloud, API, аутоматизација</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY IT WORKS (EN) ===== -->
+<section id="whyEn" class="py-16 px-6 bg-blue-900 text-white">
     <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl font-extrabold mb-4">
-            You're Not Buying SEO.
-        </h2>
-        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
-            You're discovering what AI thinks about your company
-            <span class="text-white font-bold">before your customers do</span>.
-        </p>
+        <h2 class="text-3xl font-extrabold mb-4">You're Not Buying SEO.</h2>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">You're discovering what AI thinks about your company <span class="text-white font-bold">before your customers do</span>.</p>
         <div class="mt-8 grid sm:grid-cols-3 gap-6 text-left">
-            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                <div class="text-3xl mb-2">🧠</div>
-                <h4 class="font-bold">What AI Says</h4>
-                <p class="text-sm text-blue-200">Does it recommend, ignore, or distort your brand?</p>
-            </div>
-            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                <div class="text-3xl mb-2">🎯</div>
-                <h4 class="font-bold">Who Gets Recommended</h4>
-                <p class="text-sm text-blue-200">Which competitors win clients instead of you</p>
-            </div>
-            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                <div class="text-3xl mb-2">🛡️</div>
-                <h4 class="font-bold">How to Fix It</h4>
-                <p class="text-sm text-blue-200">Concrete 30–60 day action plan</p>
-            </div>
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm"><div class="text-3xl mb-2">🧠</div><h4 class="font-bold">What AI Says</h4><p class="text-sm text-blue-200">Does it recommend, ignore, or distort your brand?</p></div>
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm"><div class="text-3xl mb-2">🎯</div><h4 class="font-bold">Who Gets Recommended</h4><p class="text-sm text-blue-200">Which competitors win clients instead of you</p></div>
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm"><div class="text-3xl mb-2">🛡️</div><h4 class="font-bold">How to Fix It</h4><p class="text-sm text-blue-200">Concrete 30–60 day action plan</p></div>
         </div>
     </div>
 </section>
 
-<!-- ===== FINAL CTA ===== -->
-<section class="py-20 px-6 bg-white">
-    <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
-            Pilot AI Visibility Audit
-        </h2>
-        <p class="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">
-            15–20 pages of analytics · 10+ user scenarios ·
-            competitive benchmarking · 48-hour delivery
-        </p>
-        <div class="text-5xl font-black text-blue-600 mb-2">
-            $99
+<!-- ===== WHY IT WORKS (SR) ===== -->
+<section id="whySr" class="py-16 px-6 bg-blue-900 text-white lang-hidden">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-extrabold mb-4">Не купујете SEO.</h2>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">Сазнајете шта АИ мисли о вашој компанији <span class="text-white font-bold">пре него што то сазнају ваши клијенти</span>.</p>
+        <div class="mt-8 grid sm:grid-cols-3 gap-6 text-left">
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm"><div class="text-3xl mb-2">🧠</div><h4 class="font-bold">Шта АИ каже</h4><p class="text-sm text-blue-200">Препоручује, игнорише или изобличује?</p></div>
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm"><div class="text-3xl mb-2">🎯</div><h4 class="font-bold">Кога АИ препоручује</h4><p class="text-sm text-blue-200">Које компаније добијају клијенте уместо вас</p></div>
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm"><div class="text-3xl mb-2">🛡️</div><h4 class="font-bold">Како то поправити</h4><p class="text-sm text-blue-200">Конкретан план за 30–60 дана</p></div>
         </div>
-        <p class="text-sm text-slate-500 mb-8">
-            Manual expert analysis · No automated generation
-        </p>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.kate.taratuta@gmail.com&su=AI%20Visibility%20Audit%20Request"
-           target="_blank"
-           class="gradient-cta text-white px-10 py-5 rounded-xl text-xl font-bold shadow-lg hover:shadow-xl transition-all inline-block">
-            Get AI Visibility Audit — $99
-        </a>
-        <p class="text-sm text-slate-400 mt-4">
-            Submit your request and we'll respond within 2 hours
-        </p>
+    </div>
+</section>
+
+<!-- ===== FINAL CTA (EN) ===== -->
+<section id="ctaEn" class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Pilot AI Visibility Audit</h2>
+        <p class="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">15–20 pages of analytics · 10+ user scenarios · competitive benchmarking · 48-hour delivery</p>
+        <div class="text-5xl font-black text-blue-600 mb-2">$99</div>
+        <p class="text-sm text-slate-500 mb-8">Manual expert analysis · No automated generation</p>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.kate.taratuta@gmail.com&su=AI%20Visibility%20Audit%20Request" target="_blank" class="gradient-cta text-white px-10 py-5 rounded-xl text-xl font-bold shadow-lg hover:shadow-xl transition-all inline-block">Get AI Visibility Audit — $99</a>
+        <p class="text-sm text-slate-400 mt-4">Submit your request and we'll respond within 2 hours</p>
+    </div>
+</section>
+
+<!-- ===== FINAL CTA (SR) ===== -->
+<section id="ctaSr" class="py-20 px-6 bg-white lang-hidden">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Пилотни AI Visibility Audit</h2>
+        <p class="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">15–20 страница аналитике · 10+ корисничких сценарија · поређење са конкурентима · рок припреме 48 сати</p>
+        <div class="text-5xl font-black text-blue-600 mb-2">99€</div>
+        <p class="text-sm text-slate-500 mb-8">Ручни рад експерта · Без аутоматске генерације</p>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.kate.taratuta@gmail.com&su=AI%20Visibility%20Audit%20Request" target="_blank" class="gradient-cta text-white px-10 py-5 rounded-xl text-xl font-bold shadow-lg hover:shadow-xl transition-all inline-block">Наручите AI Visibility Audit за 99€</a>
+        <p class="text-sm text-slate-400 mt-4">Попуните захтев и одговорићемо у року од 2 сата</p>
     </div>
 </section>
 
@@ -560,6 +611,25 @@
         <p class="mt-4 text-xs text-slate-600">© 2026 ETSystemsAI. All rights reserved.</p>
     </div>
 </footer>
+
+<!-- ===== ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ ===== -->
+<script>
+    function toggleLanguage() {
+        // Все блоки с классами для EN и SR
+        const enBlocks = document.querySelectorAll('#heroEn, #valueEn, #includedEn, #scorecardEn, #benchmarkEn, #hallucinationEn, #mapEn, #recsEn, #templatesEn, #whyEn, #ctaEn');
+        const srBlocks = document.querySelectorAll('#heroSr, #valueSr, #includedSr, #scorecardSr, #benchmarkSr, #hallucinationSr, #mapSr, #recsSr, #templatesSr, #whySr, #ctaSr');
+
+        // Переключение видимости
+        enBlocks.forEach(el => el.classList.toggle('lang-hidden'));
+        srBlocks.forEach(el => el.classList.toggle('lang-hidden'));
+
+        // Обновление активного языка в переключателе
+        const enLabel = document.getElementById('langEnLabel');
+        const srLabel = document.getElementById('langSrLabel');
+        enLabel.classList.toggle('active-lang');
+        srLabel.classList.toggle('active-lang');
+    }
+</script>
 
 </body>
 </html>
